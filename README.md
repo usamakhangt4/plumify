@@ -3,17 +3,17 @@
 ## Brief
 Recreate the provided Mockup into a responsive page. Discover the individual
 building blocks that can be built independently and put them to use in order to
-build the final user interface.
-
-Use the assets provided, and assign an audio track to the albums, When one is
-clicked it should start playing, and the UI should update accordingly. The
-activty stream should also update as you change between tracks,
+build the final user interface, using the assets provided.
 
 ## Requirements
 * Must be fully responsive.
-* Must use ES6.
 * Use of CSS processors (SCSS or PostCSS)
+* Clean, semantic code
+
+## Bonus points
+* CSS Animations
+* Assign an audio track to each album, When clicked the track should start playing,
+  updating the UI accordingly.
 * Use the Javascript Notification API to show notification of track changes
   (include track details and the album art)
-* Must make the player controls work.
-* Add keyboard shortcuts for Play/pause Next/Previous track.
+* Make the player controls work.
