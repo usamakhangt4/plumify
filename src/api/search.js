@@ -8,8 +8,8 @@ export default {
     search(query) {
       return axios.get(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`, {
           'headers': {
-              'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com',
-              'x-rapidapi-key': '744e513029mshf532c0e26d9658ep18c128jsnb0650ee50ab0',
+              'x-rapidapi-host': API_HOST,
+              'x-rapidapi-key': API_KEY,
           }
       });
     },

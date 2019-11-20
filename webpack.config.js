@@ -1,6 +1,8 @@
 const path = require('path');
-
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+require('dotenv').config();
 
 module.exports = {
     target: "web",
@@ -34,8 +36,14 @@ module.exports = {
             }
         ],
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: './src/index.html',
-        inject: true,
-    })],
+    plugins: [
+        new webpack.DefinePlugin({
+            'API_HOST': JSON.stringify(process.env.API_HOST),
+            'API_KEY': JSON.stringify(process.env.API_KEY),
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            inject: true,
+        }),
+    ],
 };
