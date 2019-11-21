@@ -6,7 +6,7 @@ Create a music search app based on Deezer using their free developer API.
 
 ## Setup
 
-* Clone the repo at `https://github.com/VictoriaPlum-com/plumify.git`
+* Fork the git repository at https://github.com/VictoriaPlum-com/plumify.git
 * Sign up for a free account with RapidAPI using your Github sign-in at https://rapidapi.com/
 * Go to https://rapidapi.com/deezerdevs/api/deezer-1 and copy the header parameters for 
 `X-RapidAPI-Host` and `X-RapidAPI-Key` from the header parameters section. 
