@@ -7,26 +7,12 @@ Create a music search app based on Deezer using their free developer API.
 ## Setup
 
 * Fork the git repository at https://github.com/VictoriaPlum-com/plumify.git to your own GitHub account.
-* Sign up for a free account with Rapid API using your GitHub sign-in at https://rapidapi.com/
-* Go to https://rapidapi.com/deezerdevs/api/deezer-1 and copy the header parameters for 
-`X-RapidAPI-Host` and `X-RapidAPI-Key` from the header parameters section. 
-* Paste these into the `.env` file in the repository.
-
-**Example**
-
-```
-API_HOST={X-RapidAPI-Host} // use your own host value
-API_KEY={X-RapidAPI-Key} // use your own api key
-```
-
 * Once you're finished, host your code on GitHub Pages 
-(see https://pages.github.com/). 
-You will need to follow the directions for 
-`Project site > Start from scratch > Step 4 Repository settings`.
+(see https://pages.github.com/) or Netlify (https://app.netlify.com/)
 
 ## Build
 
-* Run `npm install` to fetch all of the dependencies.
+* Run `npm install` to fetch all the dependencies.
 * Run `npm run dev` to spin up the development server.
 
 ## Guidelines
@@ -68,8 +54,7 @@ colors:
 ## Bonus points
 
 * CSS Animations/transitions.
-* Use the JavaScript Notification API to show notification of track changes
- (include track details and the album art).
-* Make the player controls work using one of the MP3 preview URLs 
- returned for track results. This could be using the `Web Audio API`, 
+* Use the JavaScript Notification API to show a notification when the track changes.
+* Enable an audio preview of the track using player controls using the preview URL returned from the
+  search results. This could be using the `Web Audio API`, 
  `HTMLMediaElement` or `<audio>` HTML tag. 
