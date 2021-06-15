@@ -1,4 +1,4 @@
-# Plumify — VictoriaPlum.com front-end test.
+# Plumify — VictoriaPlum.com front-end test
 
 ## Brief
 
@@ -20,8 +20,8 @@ Create a music search app based on Deezer using their free developer API.
 **Base acceptance criteria**
 
 - Create a mobile-only version of the design which can be found at -
-  https://www.figma.com/file/CAVdAV2p29b76OoNQdgqhK/Music-player?node-id=0%3A1
-
+  https://www.figma.com/file/CAVdAV2p29b76OoNQdgqhK/Music-player?node-id=0%3A55
+  
 (You will need to sign up for a free account to inspect the design)
 
 - Use the SVG icons provided in the assets folder
