@@ -19,6 +19,11 @@ module.exports = {
         watchContentBase: true
     },
     devtool: false,
+    resolve: {
+  alias: {
+    'vue': 'vue/dist/vue.esm-bundler.js'
+  }
+},
     module: {
         rules: [{
             test: /\.vue$/,
