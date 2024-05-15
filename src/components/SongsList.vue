@@ -71,6 +71,7 @@ const handleSelectSong = (song) => {
 .song {
   display: flex;
   gap: 10px;
+  cursor: pointer;
 
   img {
     height: 20px;
