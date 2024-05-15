@@ -7,7 +7,6 @@ const songsList = computed(() => store.state.songsList);
 const showList = computed(() => songsList.value.length > 0);
 
 const handleSelectSong = (song) => {
-  console.log(song);
   store.dispatch("selectSong", song);
 };
 </script>
@@ -34,7 +33,6 @@ const handleSelectSong = (song) => {
 <style lang="scss" scoped>
 .songs-list-container {
   display: grid;
-  // height: 340px;
   overflow: auto;
 
   &::-webkit-scrollbar {

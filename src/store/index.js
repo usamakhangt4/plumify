@@ -4,7 +4,6 @@ import searchService from '../api/search'
 export default createStore({
   state: {
     isSearching: false,
-    error: null,
     songsList: [],
     selectedSong: {},
     currentSongTime:0
@@ -19,9 +18,6 @@ export default createStore({
     SET_SELECTED_SONG(state, song) {
       state.selectedSong = song;
     },
-    SET_ERROR(state, error) {
-      state.error = error;
-    },
     SET_CURRENT_SONG_TIME(state,time){
       state.currentSongTime = time
     }
@@ -31,7 +27,6 @@ export default createStore({
       if(!searchString) return
 
       commit('SET_SEARCHING', true);
-      commit('SET_ERROR', null);
 
       try {
         const response = await searchService.search(searchString);
@@ -39,7 +34,6 @@ export default createStore({
       } 
       catch (error) {
         console.error("Error:", error);
-        commit('SET_ERROR', 'Failed to fetch songs.');
       } 
       finally {
         commit('SET_SEARCHING', false);

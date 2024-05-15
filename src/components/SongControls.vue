@@ -17,7 +17,6 @@ const toggleSongPlay = () => {
   isSongPlaying.value = !isSongPlaying.value;
 
   if (isSongPlaying.value) {
-    // play song
     if (!audio) {
       audio = new Audio(selectedSong.value?.preview);
     }
@@ -26,7 +25,6 @@ const toggleSongPlay = () => {
       store.commit("SET_CURRENT_SONG_TIME", Math.floor(audio.currentTime));
     }, 1000);
   } else {
-    // pause song
     if (audio) {
       audio.pause();
     }

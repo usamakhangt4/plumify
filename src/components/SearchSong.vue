@@ -62,15 +62,3 @@ const { handleSearch } = props;
 }
 </style>
 
-
-
-
-
-<!-- /* Search Icon */ -->
-
-<!-- position: absolute;
-width: 14px;
-height: 14px;
-left: 152px;
-top: 5px; -->
-
