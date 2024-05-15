@@ -48,7 +48,7 @@ const formattedCurrentSongTime = computed(() => {
 
 .slider {
   position: absolute;
-  width: 176px;
+  width: 100%;
   height: 11px;
   -webkit-appearance: none;
   appearance: none;

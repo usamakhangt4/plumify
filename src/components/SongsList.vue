@@ -34,7 +34,7 @@ const handleSelectSong = (song) => {
 <style lang="scss" scoped>
 .songs-list-container {
   display: grid;
-  height: 340px;
+  // height: 340px;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -70,12 +70,13 @@ const handleSelectSong = (song) => {
 
 .song {
   display: flex;
+  align-items: center;
   gap: 10px;
   cursor: pointer;
 
   img {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
   }
 }

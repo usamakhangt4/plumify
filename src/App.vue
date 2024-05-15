@@ -56,11 +56,13 @@ const handleSearch = async (searchString) => {
       </section>
       <!-- end show loader on searching -->
 
-      <section v-show="showPlayer">
+      <section v-show="showPlayer" class="player">
         <NowPlaying />
-        <PlaybackControls />
-        <SongTiming />
-        <SongControls />
+        <section>
+          <PlaybackControls />
+          <SongTiming />
+          <SongControls />
+        </section>
       </section>
       <SongsList v-show="showSongsList" />
 
@@ -78,14 +80,24 @@ const handleSearch = async (searchString) => {
 .main-container {
   display: grid;
   place-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .card {
-  background-color: #000419;
-  width: 204px;
-  height: 388px;
+  width: 100%;
+  height: 100%;
+  // width: 204px;
+  // height: 388px;
   padding: 13px 14px 20px;
+}
+
+.player {
+  display: grid;
+  align-items: end;
+  align-content: stretch;
+  height: 100%;
+  // padding-top: 0px;
+  padding-bottom: 30px;
 }
 
 .no-songs-found {

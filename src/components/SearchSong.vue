@@ -31,7 +31,7 @@ const { handleSearch } = props;
 <style lang="scss" scoped>
 .search-container {
   position: relative;
-  width: 176px;
+  // width: 176px;
   height: 24px;
   margin-inline: auto;
   border-radius: 12px;
@@ -57,7 +57,7 @@ const { handleSearch } = props;
   position: absolute;
   width: 14px;
   height: 14px;
-  left: 152px;
+  right: 10px;
   top: 5px;
   cursor: pointer;
 }
