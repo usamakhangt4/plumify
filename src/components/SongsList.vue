@@ -1,0 +1,69 @@
+<script setup>
+import { computed } from "vue";
+import store from "../store";
+
+const songsList = computed(() => store.state.songsList);
+</script>
+
+<template>
+  <section class="songs-list-container">
+    <ul class="songsList">
+      <li v-for="song in songsList" :key="song.id" class="song">
+        <img :src="song.album.cover" alt="album cover" />
+        <article>
+          <h3>{{ song.title }}</h3>
+          <h4>{{ song.artist.name }}</h4>
+        </article>
+      </li>
+    </ul>
+  </section>
+</template>
+
+<style lang="scss" scoped>
+.songs-list-container {
+  display: grid;
+  height: 340px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.songsList {
+  margin-top: 20px;
+
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 5px 0;
+    color: #ffdf;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(128, 128, 128, 0.335);
+    }
+
+    h3 {
+      font-size: 11px;
+      font-weight: 300;
+      margin-bottom: 5px;
+      color: #ffdf;
+    }
+    h4 {
+      font-size: 9px;
+      font-weight: 200;
+      color: #ffdf;
+    }
+  }
+}
+
+.song {
+  display: flex;
+  gap: 10px;
+
+  img {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+  }
+}
+</style>
