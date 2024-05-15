@@ -1,13 +1,15 @@
 <script setup>
 import { computed } from "vue";
-import store from "../store";
+import { useStore } from "vuex";
 
+const store = useStore();
 const songsList = computed(() => store.state.songsList);
+const showList = computed(() => songsList.value.length > 0);
 </script>
 
 <template>
   <section class="songs-list-container">
-    <ul class="songsList">
+    <ul class="songsList" v-if="showList">
       <li v-for="song in songsList" :key="song.id" class="song">
         <img :src="song.album.cover" alt="album cover" />
         <article>

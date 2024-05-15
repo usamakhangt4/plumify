@@ -31,8 +31,7 @@ export default createStore({
 
       try {
         const response = await searchService.search(searchString);
-        const searchedSongsList=response.data.data
-        commit('SET_SONGS_LIST', searchedSongsList);
+        commit('SET_SONGS_LIST', response.data.data);
       } 
       catch (error) {
         console.error("Error:", error);
@@ -46,10 +45,5 @@ export default createStore({
       commit('SET_SELECTED_SONG', song);
     }
   },
-  // getters: {
-  //   songsList: state => state.songsList,
-  //   selectedSong: state => state.selectedSong,
-  //   isSearching: state => state.isSearching,
-  //   error: state => state.error
-  // }
+ 
 });
