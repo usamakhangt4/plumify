@@ -38,6 +38,7 @@ const showSongsList = computed(() => {
 });
 
 const handleSearch = async (searchString) => {
+  store.dispatch("selectSong", {});
   await store.dispatch("fetchSongsList", searchString);
   isSearching.value = store.state.isSearching;
 };

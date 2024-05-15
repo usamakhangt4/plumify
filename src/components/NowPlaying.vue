@@ -1,14 +1,23 @@
 <script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const selectedSong = computed(() => store.state.selectedSong);
+const showMarquee = computed(() => selectedSong.value?.title?.length > 20);
 </script>
 
 <template>
   <section class="now-playing">
     <h3 class="now-playing-text">Now Playing</h3>
     <section class="image-container">
-      <img src="../assets/images/defaultCover.png" alt="cover" />
+      <img :src="selectedSong?.album?.cover" alt="cover" />
     </section>
-    <h1 class="song-title">Title of the Song</h1>
-    <h3 class="artist-name">Artist Name</h3>
+    <!-- show marquee class if showMarquee -->
+    <h1 class="song-title" :class="{ marquee: showMarquee }">
+      <p>{{ selectedSong?.title }}</p>
+    </h1>
+    <h3 class="artist-name">{{ selectedSong?.artist?.name }}</h3>
   </section>
 </template>
 
@@ -36,15 +45,37 @@
     margin-bottom: 8px;
   }
 
+  .artist-name {
+    font-size: 9px;
+    font-weight: 200;
+  }
+
   .song-title {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
     font-size: 14px;
     font-weight: 300;
     text-transform: capitalize;
   }
 
-  .artist-name {
-    font-size: 9px;
-    font-weight: 200;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 }
 </style>

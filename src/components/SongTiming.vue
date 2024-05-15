@@ -1,10 +1,19 @@
 <script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { secondsToMinutes } from "../utils/helper";
+
+const store = useStore();
+const selectedSong = computed(() => store.state.selectedSong);
+const songDuration = computed(() => {
+  return secondsToMinutes(selectedSong.value.duration);
+});
 </script>
 
 <template>
   <section class="song-timing">
     <p class="time">0:00</p>
-    <p class="time">3:00</p>
+    <p class="time">{{ songDuration }}</p>
   </section>
   <section class="slider-container">
     <input type="range" min="0" max="100" value="0" class="slider" />

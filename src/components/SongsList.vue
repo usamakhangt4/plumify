@@ -5,12 +5,22 @@ import { useStore } from "vuex";
 const store = useStore();
 const songsList = computed(() => store.state.songsList);
 const showList = computed(() => songsList.value.length > 0);
+
+const handleSelectSong = (song) => {
+  console.log(song);
+  store.dispatch("selectSong", song);
+};
 </script>
 
 <template>
   <section class="songs-list-container">
     <ul class="songsList" v-if="showList">
-      <li v-for="song in songsList" :key="song.id" class="song">
+      <li
+        v-for="song in songsList"
+        :key="song.id"
+        class="song"
+        @click="handleSelectSong(song)"
+      >
         <img :src="song.album.cover" alt="album cover" />
         <article>
           <h3>{{ song.title }}</h3>
