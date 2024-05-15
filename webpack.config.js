@@ -45,29 +45,29 @@ module.exports = {
                 loader: "raw-loader"
             },
             {
-            test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'fonts/'
+                test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
                     }
-                }
-            ]
-        },
-             {
-            test: /\.(png|jpe?g|gif|svg)$/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'images/'
+                ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
+                        }
                     }
-                }
-            ]
-        },
+                ]
+            },
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules)/,
@@ -87,7 +87,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: 'index.html',
-            inject: true,
+            inject: 'body',
         }),
         new VueLoaderPlugin()
     ],
