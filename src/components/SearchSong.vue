@@ -31,7 +31,6 @@ const { handleSearch } = props;
 <style lang="scss" scoped>
 .search-container {
   position: relative;
-  // width: 176px;
   height: 24px;
   margin-inline: auto;
   border-radius: 12px;
@@ -40,8 +39,8 @@ const { handleSearch } = props;
 .search-input {
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  color: #000419;
+  background-color: var(--whiteColor);
+  color: var(--primaryColor);
   border: none;
   border-radius: inherit;
   padding: 12px;

@@ -32,7 +32,7 @@ const formattedCurrentSongTime = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
+  color: var(--whiteColor);
   margin-bottom: 7px;
 
   .time {
@@ -59,8 +59,8 @@ const formattedCurrentSongTime = computed(() => {
     appearance: none;
     width: 11px;
     height: 11px;
-    background: #3b32bc;
-    border: 2px solid #3b32bc;
+    background: var(--blueColor);
+    border: 2px solid var(--blueColor);
     border-radius: 50%;
     cursor: pointer;
     margin-top: -4px;

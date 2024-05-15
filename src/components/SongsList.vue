@@ -48,7 +48,7 @@ const handleSelectSong = (song) => {
   padding: 0;
   li {
     padding: 5px 0;
-    color: #ffdf;
+    color: var(--textWhite);
 
     &:not(:last-child) {
       border-bottom: 1px solid rgba(128, 128, 128, 0.335);
@@ -58,12 +58,12 @@ const handleSelectSong = (song) => {
       font-size: 11px;
       font-weight: 300;
       margin-bottom: 5px;
-      color: #ffdf;
+      color: var(--textWhite);
     }
     h4 {
       font-size: 9px;
       font-weight: 200;
-      color: #ffdf;
+      color: var(--textWhite);
     }
   }
 }

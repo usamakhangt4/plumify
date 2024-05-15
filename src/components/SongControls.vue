@@ -96,7 +96,7 @@ onUnmounted(() => {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background-color: #3b32bc;
+  background-color: var(--blueColor);
 }
 .song-playing {
   .pause-icon {

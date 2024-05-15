@@ -1,4 +1,5 @@
 @import 'fonts';
+@import 'variables';
 
 *,*:after,*::before{
   margin: 0;
@@ -8,6 +9,6 @@
 
 body {
   font-family: 'SourceSansPro', sans-serif;
-  background-color: #000419;
+  background-color: var(--primaryColor);
 }
 

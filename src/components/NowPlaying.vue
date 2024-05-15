@@ -23,7 +23,7 @@ const showMarquee = computed(() => selectedSong.value?.title?.length > 60);
 
 <style lang="scss" scoped>
 .now-playing {
-  color: #fff;
+  color: var(--whiteColor);
   display: grid;
   place-items: center;
   margin-top: 17px;
@@ -41,7 +41,7 @@ const showMarquee = computed(() => selectedSong.value?.title?.length > 60);
     text-align: center;
     height: 126px;
     width: 126px;
-    background-color: #f4f4f4ae;
+    background-color: var(--imageBackground);
     margin-bottom: 14px;
   }
 
