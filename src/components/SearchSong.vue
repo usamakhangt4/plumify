@@ -16,7 +16,9 @@ const { handleSearch } = props;
       placeholder="Search for a song"
       class="search-input"
       v-model="searchString"
+      @keypress.enter="handleSearch(searchString)"
     />
+
     <img
       :src="SearchIcon"
       alt="search"
