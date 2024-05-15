@@ -80,7 +80,7 @@ const handleSearch = async (searchString) => {
 .main-container {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 100lvh;
 }
 
 .card {
