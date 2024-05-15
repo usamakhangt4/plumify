@@ -1,22 +1,29 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
-import { secondsToMinutes } from "../utils/helper";
 
 const store = useStore();
-const selectedSong = computed(() => store.state.selectedSong);
-const songDuration = computed(() => {
-  return secondsToMinutes(selectedSong.value.duration);
+const currentSongTime = computed(() => store.state.currentSongTime);
+
+const formattedCurrentSongTime = computed(() => {
+  if (currentSongTime.value < 10) return `0:0${currentSongTime.value}`;
+  return `0:${currentSongTime.value}`;
 });
 </script>
 
 <template>
   <section class="song-timing">
-    <p class="time">0:00</p>
-    <p class="time">{{ songDuration }}</p>
+    <p class="time">{{ formattedCurrentSongTime }}</p>
+    <p class="time">0:30</p>
   </section>
   <section class="slider-container">
-    <input type="range" min="0" max="100" value="0" class="slider" />
+    <input
+      type="range"
+      min="0"
+      max="30"
+      :value="currentSongTime"
+      class="slider"
+    />
   </section>
 </template>
 
@@ -58,6 +65,7 @@ const songDuration = computed(() => {
     cursor: pointer;
     margin-top: -4px;
     box-sizing: border-box;
+    transition: all 0.1s ease-in-out;
   }
 
   &::-webkit-slider-runnable-track {

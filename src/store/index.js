@@ -7,6 +7,7 @@ export default createStore({
     error: null,
     songsList: [],
     selectedSong: {},
+    currentSongTime:0
   },
   mutations: {
     SET_SEARCHING(state, isSearching) {
@@ -20,6 +21,9 @@ export default createStore({
     },
     SET_ERROR(state, error) {
       state.error = error;
+    },
+    SET_CURRENT_SONG_TIME(state,time){
+      state.currentSongTime = time
     }
   },
   actions: {
