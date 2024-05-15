@@ -10,38 +10,41 @@ module.exports = {
     mode: 'development',
     entry: "./src/index.js",
     output: {
-        path: path.resolve("./dist"),
+        path: path.resolve(__dirname, "dist"),
         filename: "app.bundle.js",
     },
     devServer: {
-        port: 8080,
-        contentBase: './src',
-        watchContentBase: true
+        static: {
+            directory: path.join(__dirname, 'src'),
+            watch: true
+        },
+        hot: true,
     },
     devtool: false,
     resolve: {
-  alias: {
-    'vue': path.resolve(__dirname, 'node_modules/vue/dist/vue.esm-bundler.js')
-  }
-},
+        alias: {
+            'vue': 'vue/dist/vue.esm-bundler.js'
+        }
+    },
     module: {
-        rules: [{
-            test: /\.vue$/,
-            loader: 'vue-loader'
-        },
-        {
-            test: /\.html$/,
-            loader: "raw-loader"
-        },
-        {
-            test: /\.scss$/,
-            use: [
-                'vue-style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
-        },
-        {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ['vue-style-loader', 'css-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: ['vue-style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.html$/,
+                loader: "raw-loader"
+            },
+            {
             test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
             use: [
                 {
@@ -53,7 +56,7 @@ module.exports = {
                 }
             ]
         },
-        {
+             {
             test: /\.(png|jpe?g|gif|svg)$/,
             use: [
                 {
@@ -65,16 +68,16 @@ module.exports = {
                 }
             ]
         },
-        {
-            test: /\.m?js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
                 }
             }
-        }
         ],
     },
     plugins: [
