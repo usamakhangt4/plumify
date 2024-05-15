@@ -2,7 +2,7 @@
 import PreviousIcon from "../assets/icons/previous.svg";
 import PauseIcon from "../assets/icons/pause.svg";
 import NextIcon from "../assets/icons/next.svg";
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 
@@ -48,6 +48,23 @@ const seekForwards = () => {
     audio.currentTime += 10;
   }
 };
+
+onMounted(() => {
+  toggleSongPlay();
+});
+
+onUnmounted(() => {
+  if (audio) {
+    audio.pause();
+    audio = null;
+  }
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  store.commit("SET_CURRENT_SONG_TIME", 0);
+});
 </script>
 
 <template>

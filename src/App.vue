@@ -51,12 +51,12 @@ const handleSearch = async (searchString) => {
       <SearchSong :handleSearch="handleSearch" />
 
       <!-- start show loader on searching -->
-      <section class="loader-container" v-show="isSearching">
+      <section class="loader-container" v-if="isSearching">
         <AppLoader />
       </section>
       <!-- end show loader on searching -->
 
-      <section v-show="showPlayer" class="player">
+      <section v-if="showPlayer" class="player">
         <NowPlaying />
         <section>
           <PlaybackControls />
@@ -64,10 +64,10 @@ const handleSearch = async (searchString) => {
           <SongControls />
         </section>
       </section>
-      <SongsList v-show="showSongsList" />
+      <SongsList v-if="showSongsList" />
 
       <!-- start no data state -->
-      <article v-show="noData" class="no-songs-found">
+      <article v-if="noData" class="no-songs-found">
         <h1>No Songs here, try searching</h1>
       </article>
       <!-- end no data state -->
@@ -86,8 +86,6 @@ const handleSearch = async (searchString) => {
 .card {
   width: 100%;
   height: 100%;
-  // width: 204px;
-  // height: 388px;
   padding: 13px 14px 20px;
 }
 
