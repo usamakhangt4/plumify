@@ -23,7 +23,7 @@ module.exports = {
     devtool: false,
     resolve: {
         alias: {
-            'vue': 'vue/dist/vue.esm-bundler.js'
+            'vue': 'node_modules/vue/dist/vue.esm-bundler.js'
         }
     },
     module: {
