@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 require('dotenv').config();
 
@@ -19,21 +20,56 @@ module.exports = {
     },
     devtool: false,
     module: {
-        rules: [
-            {
-                test: /\.html$/,
-                loader: "raw-loader"
-            },
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
+        rules: [{
+            test: /\.vue$/,
+            loader: 'vue-loader'
+        },
+        {
+            test: /\.html$/,
+            loader: "raw-loader"
+        },
+        {
+            test: /\.scss$/,
+            use: [
+                'vue-style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
+        },
+        {
+            test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
+            use: [
+                {
+                    loader: 'file-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
                     }
                 }
+            ]
+        },
+        {
+            test: /\.(png|jpe?g|gif|svg)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
+                }
+            ]
+        },
+        {
+            test: /\.m?js$/,
+            exclude: /(node_modules)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
+        }
         ],
     },
     plugins: [
@@ -45,5 +81,6 @@ module.exports = {
             template: 'index.html',
             inject: true,
         }),
+        new VueLoaderPlugin()
     ],
 };
