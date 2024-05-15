@@ -33,10 +33,10 @@ const formattedCurrentSongTime = computed(() => {
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  font-size: 9px;
   margin-bottom: 7px;
 
   .time {
+    font-size: 12px;
     font-weight: 300;
   }
 }

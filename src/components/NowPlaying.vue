@@ -4,7 +4,7 @@ import { useStore } from "vuex";
 
 const store = useStore();
 const selectedSong = computed(() => store.state.selectedSong);
-const showMarquee = computed(() => selectedSong.value?.title?.length > 20);
+const showMarquee = computed(() => selectedSong.value?.title?.length > 60);
 </script>
 
 <template>
@@ -29,7 +29,7 @@ const showMarquee = computed(() => selectedSong.value?.title?.length > 20);
   margin-top: 17px;
 
   .now-playing-text {
-    font-size: 9px;
+    font-size: 14px;
     margin-bottom: 11px;
     font-weight: 300;
     text-transform: uppercase;
@@ -42,12 +42,13 @@ const showMarquee = computed(() => selectedSong.value?.title?.length > 20);
     height: 126px;
     width: 126px;
     background-color: #f4f4f4ae;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
   }
 
   .artist-name {
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 200;
+    margin-top: 10px;
   }
 
   .song-title {
@@ -56,7 +57,10 @@ const showMarquee = computed(() => selectedSong.value?.title?.length > 20);
     overflow: hidden;
 
     p {
+      font-size: 18px;
       text-align: center;
+      font-weight: 300;
+      text-transform: capitalize;
     }
   }
 
@@ -64,9 +68,6 @@ const showMarquee = computed(() => selectedSong.value?.title?.length > 20);
     display: inline-block;
     padding-left: 100%;
     animation: marquee 10s linear infinite;
-    font-size: 14px;
-    font-weight: 300;
-    text-transform: capitalize;
   }
 
   @keyframes marquee {
